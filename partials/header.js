@@ -1,8 +1,9 @@
 const headerDOM = document.querySelector('header')
 const header = () => {
     return `
-    <a href="/"><h1>Placeholder</h1></a>
+    <a href="/"><h1>HiddenArcade</h1></a>
     <nav>
+        <a href="/">Games</a>
         <a href="/">New!</a>
         <a href="/devlog">Devlog</a>
         <a id="feedback" href="javascript:void(0)">Feedback</a>
@@ -19,8 +20,8 @@ const header = () => {
                 <label for="feedback">*Feedback:</label><br>
                 <textarea name="feedback" rows="5" cols="50" required></textarea><br>
                 <span>If giving feedback on a specific game, please mention it.</span><br>
-                <input type="hidden" name="_subject" value="Placeholder feedback">
-                <input type="hidden" name="_autoresponse" value="Thank you for your feedback on Placeholder, I will read it ASAP! -Louis, Creator of Placeholder">
+                <input type="hidden" name="_subject" value="HiddenArcade feedback">
+                <input type="hidden" name="_autoresponse" value="Thank you for your feedback on HiddenArcade, I will read it ASAP! -Louis, Creator of HiddenArcade.net">
                 <input type="hidden" name="_template" value="table">
                 <button type="submit" class="modal-button">Send</button>
                 <button type="reset" class="modal-button">Reset</button>
