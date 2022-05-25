@@ -1,0 +1,51 @@
+body {
+    background-color: black;
+    font-family: 'Baloo Da 2', sans-serif;
+    text-align: center;
+    color: rgb(200, 200, 200);
+}
+
+main {
+    width: 80vw;
+    max-width: 800px;
+    margin: .5rem auto 1.5rem auto;
+    padding: 1rem 0 1rem 0;
+    box-shadow: .5rem .5rem 1rem rgba(0, 255, 255, 0.5);
+    background-color: #151515;
+}
+
+h2 {
+    margin: 0 0 1rem 0;
+    font-size: 2rem;
+    color: rgb(0, 125, 255);
+}
+
+h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+    color: rgb(0, 220, 220);
+}
+
+ul {
+    margin: 0 0 1rem 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style-type: none;
+}
+
+li {
+    padding: 0 .5rem;
+}
+
+li a {
+    text-decoration: none;
+    color: rgb(200, 200, 200);
+}
+
+li a:hover {
+    text-transform: uppercase;
+    color: rgb(0, 125, 255);
+}
