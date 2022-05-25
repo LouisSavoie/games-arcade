@@ -54,6 +54,7 @@ h1 {
     color: rgb(0, 125, 255);
     font-size: 1rem;
     font-weight: bold;
+    text-align: center;
 }
 
 /* Modal Buttons */
