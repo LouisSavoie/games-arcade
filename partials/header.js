@@ -3,7 +3,7 @@ const header = () => {
     return `
     <a href="/"><h1>Placeholder</h1></a>
     <nav>
-        <a href="/testgamepage">New!</a>
+        <a href="/">New!</a>
         <a href="/devlog">Devlog</a>
         <a id="feedback" href="javascript:void(0)">Feedback</a>
     </nav>
