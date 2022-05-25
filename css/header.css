@@ -20,6 +20,7 @@ header nav a {
 }
 
 header nav a:hover {
+    text-transform: uppercase;
     color: rgb(0, 125, 255);
 }
 
@@ -28,4 +29,46 @@ h1 {
     font-family: 'Odibee Sans', sans-serif;
     font-size: 2.5rem;
     color: rgb(0, 125, 255);
+}
+
+/* Feedback Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 0; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+  
+/* Modal Content */
+.modal-content {
+    background-color: #151515;
+    margin: auto;
+    padding: 1.25rem 2rem 2rem 2rem;
+    color: rgb(0, 125, 255);
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* Modal Buttons */
+.modal-button {
+    margin: .5rem 0 0 0;
+    background-color: black;
+    border: 2px solid cyan;
+    border-radius: 5px;
+    color: cyan;
+    font-family: 'Baloo Da 2', sans-serif;
+    font-size: 1rem;
+}
+
+.modal-button:hover,
+.modal-button:focus {
+    color: rgb(0, 125, 255);
+    text-transform: uppercase;
 }
