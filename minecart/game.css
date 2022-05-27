@@ -1,0 +1,11 @@
+#block-img {
+    height: 100px;
+    width: 100px;
+}
+
+#minecart-blocks {
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
