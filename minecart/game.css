@@ -1,11 +1,18 @@
+main {
+    margin: 0 auto;
+    max-width: 200px;
+}
+
 #block-img {
     height: 100px;
     width: 100px;
 }
 
-#minecart-blocks {
-    width: 200px;
+#mined-blocks-display {
+    min-height: 75px;
+    width: 150px;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
+    align-content: flex-start;
 }
