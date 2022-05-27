@@ -63,6 +63,8 @@
                 <h2>Minecart</h2>
 
                 <button id="reset-button">Reset</button>
+
+                <span>Score: <span id="score-display">0</span></span>
     
                 <div id="loot-display">
                     <span id="loot-text">Click the pickaxe to mine!</span>
@@ -78,16 +80,18 @@
     
                 <img id="pickaxe-img" src="img/pickaxe1.png" alt="Pickaxe">
 
+                <input type="text" id="initials" placeholder="Enter Initials, max: 4" maxlength="4">
+
             </section>
 
             <section>
 
                 <h3>Local Highscores</h3>
 
-                <div id="scores-display">
-                    <ul id="scores">
+                <div>
+                    <ol id="scores-display">
                         No scores yet!
-                    </ul>
+                    </ol>
                 </div>
 
                 <button id="reset-scores-button">Reset Scores</button>

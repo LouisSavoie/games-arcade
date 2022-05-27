@@ -8,6 +8,13 @@ main {
     width: 100px;
 }
 
+#block-win {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    object-position: 120% 0;
+}
+
 #mined-blocks-display {
     min-height: 75px;
     width: 150px;
