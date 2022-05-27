@@ -1,6 +1,6 @@
 main {
     margin: 0 auto;
-    max-width: 200px;
+    max-width: 400px;
 }
 
 #block-img {
@@ -22,4 +22,8 @@ main {
     flex-direction: row;
     flex-wrap: wrap-reverse;
     align-content: flex-start;
+}
+
+#how-to-play {
+    text-align: justify;
 }
