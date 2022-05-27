@@ -79,6 +79,7 @@ const blocks = {
     }
 }
 const maxWeight = 100
+const weightUnit = 'kg'
 
 // States
 let minedBlocks = []
@@ -170,6 +171,7 @@ function resetGame() {
     scoreDisplay.innerText = score
     currentWeight = 0
     currentWeightDisplay.innerText = currentWeight
+    blockWeightUnitDisplay.innerText = weightUnit
     minedBlocks = []
     minedBlocksDisplay.innerHTML = minedBlocks.join('')
     updateLootDisplay(blocks.start)
