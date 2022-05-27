@@ -70,6 +70,12 @@ const blocks = {
         text: 'You LOSE!',
         img: 'img/lose.png',
         weight: ''
+    },
+    start: {
+        name: 'start',
+        text: 'Click the pickaxe to mine!',
+        img: '',
+        weight: '0'
     }
 }
 const maxWeight = 100
@@ -159,6 +165,16 @@ function saveScore() {
     scoresDisplay.innerHTML = scores.map(v => v.element).join('')
 }
 
+function resetGame() {
+    score = 0
+    scoreDisplay.innerText = score
+    currentWeight = 0
+    currentWeightDisplay.innerText = currentWeight
+    minedBlocks = []
+    minedBlocksDisplay.innerHTML = minedBlocks.join('')
+    updateLootDisplay(blocks.start)
+}
+
 // Event Listeners
 pickaxeImg.addEventListener('mousedown', () => {
     pickaxeImg.src = 'img/pickaxe2.png'
@@ -171,6 +187,10 @@ pickaxeImg.addEventListener('mouseup', () => {
     updateScore(block)
     pickaxeImg.src = 'img/pickaxe1.png'
     checkGameState()
+})
+
+resetButton.addEventListener('click', () => {
+    resetGame()
 })
 
 
