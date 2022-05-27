@@ -175,6 +175,12 @@ function resetGame() {
     updateLootDisplay(blocks.start)
 }
 
+function resetScores() {
+    scores = []
+    localStorage.minecartScores = JSON.stringify(scores)
+    scoresDisplay.innerHTML = 'No scores yet!'
+}
+
 // Event Listeners
 pickaxeImg.addEventListener('mousedown', () => {
     pickaxeImg.src = 'img/pickaxe2.png'
@@ -191,6 +197,10 @@ pickaxeImg.addEventListener('mouseup', () => {
 
 resetButton.addEventListener('click', () => {
     resetGame()
+})
+
+resetScoresButton.addEventListener('click', () => {
+    resetScores()
 })
 
 
