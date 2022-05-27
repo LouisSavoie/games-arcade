@@ -40,7 +40,7 @@
         <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2&family=Odibee+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2&family=Odibee+Sans&family=Rubik+Moonrocks&family=Bebas+Neue&family=Boogaloo&display=swap" rel="stylesheet">
 
         <!-- My CSS -->
         <link rel="stylesheet" href="../css/shared.css">
@@ -58,49 +58,40 @@
 
         <main>
 
-            <section id="game">
+            <h2>Minecart</h2>
 
-                <h2>Minecart</h2>
+            <div id="loot-display">
+                <span id="loot-text">Click the pickaxe to mine!</span>
+                <div id="block-img"></div>
+                <div><span id="block-weight">0</span><span id="block-weight-unit-display">kg</span></div>
+            </div>
 
+            <div id="minecart-display">
+                <div id="mined-blocks-display"></div>
+                <img id="minecart-img" src="img/minecart.png" alt="minecart">
+                <strong><span id="current-weight-display">0</span><span>kg / <span id="max-weight-display">100</span>kg</span></strong>
+            </div>
+
+            <div id="score-container">
                 <button id="reset-button">Reset</button>
+                <strong><span>SCORE: <span id="score-display">0</span></span></strong>
+            </div>
 
-                <span>Score: <span id="score-display">0</span></span>
-    
-                <div id="loot-display">
-                    <span id="loot-text">Click the pickaxe to mine!</span>
-                    <div id="block-img"></div>
-                    <div><span id="block-weight">0</span><span id="block-weight-unit-display">kg</span></div>
-                </div>
-    
-                <div id="minecart-display">
-                    <div id="mined-blocks-display"></div>
-                    <div><span id="current-weight-display">0</span><span>kg / <span id="max-weight-display">100</span>kg</span></div>
-                    <img src="img/minecart.png" alt="minecart">
-                </div>
-    
-                <img id="pickaxe-img" src="img/pickaxe1.png" alt="Pickaxe">
+            <img id="pickaxe-img" src="img/pickaxe1.png" alt="Pickaxe">
 
-                <input type="text" id="initials" placeholder="Enter Initials, max: 4" maxlength="4">
+            <input type="text" id="initials" placeholder="Initials, max: 4" maxlength="4">
 
-                <p id="how-to-play"><strong>How to play:</strong> Enter your initials for highscores in the input above then click the pickaxe to mine. The goal is to fill up the minecart without overfilling it. Each ore has a score value based on it's rarity. If you win, your score will be added to the highscores below. Highscores are local to your browser.</p>
+            <p id="how-to-play"><strong>How to play:</strong> Enter your initials for highscores in the input above then click the pickaxe to mine. The goal is to fill up the minecart without overfilling it. Each ore has a score value based on it's rarity. If you win, your score will be added to the highscores below. Highscores are local to your browser.</p>
 
-            </section>
+            <h3>Local Highscores</h3>
 
-            <section>
+            <div>
+                <ol id="scores-display">
+                    No scores yet!
+                </ol>
+            </div>
 
-                <h3>Local Highscores</h3>
-
-                <div>
-                    <ol id="scores-display">
-                        No scores yet!
-                    </ol>
-                </div>
-
-                <button id="reset-scores-button">Reset Scores</button>
-
-            </section>
-
-            
+            <button id="reset-scores-button">Reset Scores</button>
             
         </main>
 
