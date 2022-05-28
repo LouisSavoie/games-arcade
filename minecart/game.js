@@ -106,6 +106,16 @@ function setupDisplays() {
     maxWeightDisplay.innerText = maxWeight
 }
 
+function runPickaxe() {
+    pickaxeImg.src = 'img/pickaxe1.png'
+    if (!pickActive) return
+    const block = mine()
+    updateLootDisplay(block)
+    updateMinecart(block)
+    updateScore(block)
+    checkGameState()
+}
+
 function mine() {
     const random = Math.floor(Math.random() * 100) + 1
     if (random <= 30) {
@@ -192,14 +202,16 @@ pickaxeImg.addEventListener('mousedown', () => {
     pickaxeImg.src = 'img/pickaxe2.png'
 })
 
+pickaxeImg.addEventListener('touchstart', () => {
+    pickaxeImg.src = 'img/pickaxe2.png'
+})
+
 pickaxeImg.addEventListener('mouseup', () => {
-    pickaxeImg.src = 'img/pickaxe1.png'
-    if (!pickActive) return
-    const block = mine()
-    updateLootDisplay(block)
-    updateMinecart(block)
-    updateScore(block)
-    checkGameState()
+    runPickaxe()
+})
+
+pickaxeImg.addEventListener('touchend', () => {
+    runPickaxe()
 })
 
 resetButton.addEventListener('click', () => {
