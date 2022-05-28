@@ -210,10 +210,6 @@ pickaxeImg.addEventListener('mouseup', () => {
     runPickaxe()
 })
 
-pickaxeImg.addEventListener('touchend', () => {
-    runPickaxe()
-})
-
 resetButton.addEventListener('click', () => {
     resetGame()
 })
