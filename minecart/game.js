@@ -86,6 +86,7 @@ let minedBlocks = []
 let currentWeight = 0
 let score = 0
 let scores = []
+let pickActive = true
 
 // On load
 getLocalStorage()
@@ -149,12 +150,14 @@ function checkGameState() {
 }
 
 function runWin() {
+    pickActive = false
     updateLootDisplay(blocks.win)
     blockWeightUnitDisplay.innerText = 'PERFECTLY LOADED!'
     saveScore()
 }
 
 function runLose() {
+    pickActive = false
     updateLootDisplay(blocks.lose)
     blockWeightUnitDisplay.innerText = 'OVERLOADED!'
 }
@@ -175,6 +178,7 @@ function resetGame() {
     minedBlocks = []
     minedBlocksDisplay.innerHTML = minedBlocks.join('')
     updateLootDisplay(blocks.start)
+    pickActive = true
 }
 
 function resetScores() {
@@ -189,11 +193,12 @@ pickaxeImg.addEventListener('mousedown', () => {
 })
 
 pickaxeImg.addEventListener('mouseup', () => {
+    pickaxeImg.src = 'img/pickaxe1.png'
+    if (!pickActive) return
     const block = mine()
     updateLootDisplay(block)
     updateMinecart(block)
     updateScore(block)
-    pickaxeImg.src = 'img/pickaxe1.png'
     checkGameState()
 })
 
