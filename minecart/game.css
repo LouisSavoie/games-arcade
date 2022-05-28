@@ -17,6 +17,7 @@ button {
     background-color: rgb(189, 189, 189);
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1rem;
+    color: black;
 }
 
 h2 {
@@ -67,6 +68,17 @@ h2 {
 
 #pickaxe-img {
     margin: 0 0 .5rem 0;
+    height: 150px;
+    width: 150px;
+    background-color: #25252a;
+}
+
+.pickaxe1 {
+    background-image: url("img/pickaxe1.png");
+}
+
+.pickaxe2 {
+    background-image: url("img/pickaxe2.png");
 }
 
 input {
