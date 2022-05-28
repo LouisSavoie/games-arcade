@@ -4,7 +4,7 @@ const header = () => {
     <a href="/"><h1>HiddenArcade</h1></a>
     <nav>
         <a href="/">Games</a>
-        <a href="/">New!</a>
+        <a href="/minecart">New!</a>
         <a href="/devlog">Devlog</a>
         <a id="feedback" href="javascript:void(0)">Feedback</a>
     </nav>
