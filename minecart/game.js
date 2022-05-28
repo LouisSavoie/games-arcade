@@ -107,7 +107,7 @@ function setupDisplays() {
 }
 
 function runPickaxe() {
-    pickaxeImg.src = 'img/pickaxe1.png'
+    pickaxeImg.classList = 'pickaxe1'
     if (!pickActive) return
     const block = mine()
     updateLootDisplay(block)
@@ -199,11 +199,11 @@ function resetScores() {
 
 // Event Listeners
 pickaxeImg.addEventListener('mousedown', () => {
-    pickaxeImg.src = 'img/pickaxe2.png'
+    pickaxeImg.classList = 'pickaxe2'
 })
 
 pickaxeImg.addEventListener('touchstart', () => {
-    pickaxeImg.src = 'img/pickaxe2.png'
+    pickaxeImg.classList = 'pickaxe2'
 })
 
 pickaxeImg.addEventListener('mouseup', () => {
