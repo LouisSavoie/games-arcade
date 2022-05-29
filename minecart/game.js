@@ -114,6 +114,12 @@ const achievements = {
         icon: 'img/achievements/score69.png',
         unlocked: false
     },
+    stone: {
+        name: 'That\'s all you got?',
+        description: 'Win with only stone.',
+        icon: 'img/achievements/stone.png',
+        unlocked: false
+    },
     diamonds: {
         name: 'Diamonds!',
         description: 'Mine a diamond.',
@@ -240,6 +246,7 @@ function runWin() {
     if (!currentAchievements.win100.unlocked) runWin100Achievement()
     if (!currentAchievements.play100.unlocked) runPlay100Achievement()
     if (!currentAchievements.score69.unlocked) runScore69Achievement()
+    if (!currentAchievements.stone.unlocked) runStoneAchievement()
 }
 
 function runLose() {
@@ -307,6 +314,10 @@ function runKeepMiningAchievement() {
 
 function runScore69Achievement() {
     if (score === 69) currentAchievements.score69.unlocked = true; updateAchievements();
+}
+
+function runStoneAchievement() {
+    if (score === 5) currentAchievements.stone.unlocked = true; updateAchievements();
 }
 
 function runDiamondsAchievement() {
