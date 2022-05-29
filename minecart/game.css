@@ -111,3 +111,40 @@ h3 {
     color: rgb(189, 189, 189);
     transform: translateX(-10%);
 }
+
+#reset-scores-button {
+    margin: 0 0 1rem 0;
+}
+
+.achievement {
+    width: 200px;
+    border: 2px solid rgb(201, 171, 0);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.achievement img {
+    height: 50px;
+    width: 50px;
+    margin: 1px;
+    border: 1px solid rgb(150, 127, 0);
+    border-radius: 5px;
+}
+
+.achievement-text-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.achievement p {
+    margin: 0;
+}
+
+.achievement-locked {
+    filter: brightness(50%);
+    -webkit-filter: brightness(50%);
+}

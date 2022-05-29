@@ -125,8 +125,8 @@ function updateAchievementsDisplay() {
 }
 
 function buildAchievement(achievement) {
-    if (achievement.unlocked) return `<div class="achievement"><img src="${achievement.icon}"><div><p>${achievement.name}</p><p>${achievement.description}</p></div></div>`
-    return `<div class="achievement-locked"><img src="${achievement.icon}"><div><p>${achievement.name}</p><p>???</p></div></div>`
+    if (achievement.unlocked) return `<div class="achievement"><img src="${achievement.icon}"><div class="achievement-text-container"><p>${achievement.name}</p><p>${achievement.description}</p></div></div>`
+    return `<div class="achievement achievement-locked"><img src="${achievement.icon}"><div class="achievement-text-container"><p>${achievement.name}</p><p>???</p></div></div>`
 }
 
 // function addNewAchievements() {
