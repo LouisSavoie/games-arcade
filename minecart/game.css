@@ -155,7 +155,35 @@ h3 {
     margin: 0;
 }
 
+.achievement-desc {
+    color: rgb(189, 189, 189);
+}
+
 .achievement-locked {
     filter: brightness(50%);
     -webkit-filter: brightness(50%);
+}
+
+#achievement-unlocked-display {
+    position: fixed;
+    top: 1rem;
+    margin: 0 auto;
+    padding: .5rem;
+    border-radius: 5px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.70);
+}
+
+#achievement-unlocked-display h3 {
+    margin: 0 0 .25rem 0;
+    display: inline-block;
+}
+
+#achievement-unlocked-display span {
+    float: right;
+    color: rgb(189, 189, 189);
+}
+
+.hidden {
+    display: none;
 }

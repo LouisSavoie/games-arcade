@@ -14,6 +14,7 @@ const maxWeightDisplay = document.getElementById('max-weight-display')
 const scoreDisplay = document.getElementById('score-display')
 const scoresDisplay = document.getElementById('scores-display')
 const achievementsDisplay = document.getElementById('achievements-display')
+const achievementUnlockedDisplay = document.getElementById('achievement-unlocked-display')
 // Inputs
 const initialsInput = document.getElementById('initials')
 
@@ -148,6 +149,7 @@ let currentAchievements = {}
 // On load
 getLocalStorage()
 setupDisplays()
+currentAchievements.keepMining.minedAfter = 0
 
 // Functions
 function getLocalStorage() {
@@ -172,8 +174,8 @@ function updateAchievementsDisplay() {
 }
 
 function buildAchievement(achievement) {
-    if (achievement.unlocked) return `<div class="achievement"><img src="${achievement.icon}"><div class="achievement-text-container"><p>${achievement.name}</p><p>${achievement.description}</p></div></div>`
-    return `<div class="achievement achievement-locked"><img src="${achievement.icon}"><div class="achievement-text-container"><p>${achievement.name}</p><p>Locked</p></div></div>`
+    if (achievement.unlocked) return `<div class="achievement"><img src="${achievement.icon}"><div class="achievement-text-container"><p>${achievement.name}</p><p class="achievement-desc">${achievement.description}</p></div></div>`
+    return `<div class="achievement achievement-locked"><img src="${achievement.icon}"><div class="achievement-text-container"><p>${achievement.name}</p><p class="achievement-desc">Locked</p></div></div>`
 }
 
 // function addNewAchievements() {
@@ -278,6 +280,7 @@ function resetGame() {
     minedBlocksDisplay.innerHTML = minedBlocks.join('')
     updateLootDisplay(blocks.start)
     pickActive = true
+    currentAchievements.keepMining.minedAfter = 0
 }
 
 function resetScores() {
@@ -292,36 +295,65 @@ function resetAchievements() {
     updateAchievementsDisplay()
 }
 
+function displayAchievement(achievement) {
+    achievementUnlockedDisplay.innerHTML = `<h3>Achievement Unlocked!</h3><span>&times;</span><div class="achievement"><img src="${achievement.icon}"><div class="achievement-text-container"><p>${achievement.name}</p><p class="achievement-desc">${achievement.description}</p></div></div>`
+    achievementUnlockedDisplay.classList = ''
+}
+
 // Achievement Functions
 function runWinAchievement() {
-    currentAchievements.win.unlocked = true; updateAchievements();
+    currentAchievements.win.unlocked = true
+    displayAchievement(achievements.win)
+    updateAchievements()
 }
 
 function runWin100Achievement() {
-    currentAchievements.win100.gamesWon += 1; updateAchievements();
-    if (currentAchievements.win100.gamesWon === 100) currentAchievements.win100.unlocked = true; updateAchievements();
+    currentAchievements.win100.gamesWon += 1
+    if (currentAchievements.win100.gamesWon === 100) {
+        currentAchievements.win100.unlocked = true
+        displayAchievement(achievements.win100)
+    }
+    updateAchievements()
 }
 
 function runPlay100Achievement() {
-    currentAchievements.play100.gamesPlayed += 1; updateAchievements();
-    if (currentAchievements.play100.gamesPlayed === 100) currentAchievements.play100.unlocked = true; updateAchievements();
+    currentAchievements.play100.gamesPlayed += 1
+    if (currentAchievements.play100.gamesPlayed === 100) {
+        currentAchievements.play100.unlocked = true
+        displayAchievement(achievements.play100)
+    }
+    updateAchievements()
 }
 
 function runKeepMiningAchievement() {
-    currentAchievements.keepMining.minedAfter += 1; updateAchievements();
-    if (currentAchievements.keepMining.minedAfter === 50) currentAchievements.keepMining.unlocked = true; updateAchievements();
+    currentAchievements.keepMining.minedAfter += 1
+    if (currentAchievements.keepMining.minedAfter === 50) {
+        currentAchievements.keepMining.unlocked = true
+        displayAchievement(achievements.keepMining)
+    }
+    updateAchievements()
 }
 
 function runScore69Achievement() {
-    if (score === 69) currentAchievements.score69.unlocked = true; updateAchievements();
+    if (score === 69) {
+        currentAchievements.score69.unlocked = true
+        displayAchievement(achievements.score69)
+        updateAchievements()
+    }
 }
 
 function runStoneAchievement() {
-    if (score === 5) currentAchievements.stone.unlocked = true; updateAchievements();
+    if (score === 5) {
+        currentAchievements.stone.unlocked = true
+        displayAchievement(achievements.stone)
+        updateAchievements()
+    }
 }
 
 function runDiamondsAchievement() {
-    currentAchievements.diamonds.unlocked = true; updateAchievements();
+    currentAchievements.diamonds.unlocked = true
+    displayAchievement(achievements.diamonds)
+    updateAchievements()
 }
 
 // Event Listeners
@@ -348,4 +380,8 @@ resetScoresButton.addEventListener('click', () => {
 
 resetAchievementsButton.addEventListener('click', () => {
     resetAchievements()
+})
+
+achievementUnlockedDisplay.addEventListener('click', () => {
+    achievementUnlockedDisplay.classList = 'hidden'
 })
