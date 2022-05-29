@@ -116,6 +116,10 @@ h3 {
     margin: 0 0 1rem 0;
 }
 
+#achievements-display {
+    margin: 0 0 1rem 0;
+}
+
 .achievement {
     width: 200px;
     border: 2px solid rgb(201, 171, 0);

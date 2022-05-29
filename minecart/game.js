@@ -1,6 +1,7 @@
 // Buttons
 const resetButton = document.getElementById('reset-button')
 const resetScoresButton = document.getElementById('reset-scores-button')
+const resetAchievementsButton = document.getElementById('reset-achievements-button')
 const pickaxeImg = document.getElementById('pickaxe-img')
 // Displays
 const lootText = document.getElementById('loot-text')
@@ -231,6 +232,12 @@ function resetScores() {
     scoresDisplay.innerHTML = 'No scores yet!'
 }
 
+function resetAchievements() {
+    localStorage.minecartAchievements = JSON.stringify(achievements)
+    currentAchievements = JSON.parse(localStorage.getItem('minecartAchievements'))
+    updateAchievementsDisplay()
+}
+
 // Event Listeners
 pickaxeImg.addEventListener('mousedown', () => {
     pickaxeImg.classList = 'pickaxe2'
@@ -252,4 +259,6 @@ resetScoresButton.addEventListener('click', () => {
     resetScores()
 })
 
-
+resetAchievementsButton.addEventListener('click', () => {
+    resetAchievements()
+})
