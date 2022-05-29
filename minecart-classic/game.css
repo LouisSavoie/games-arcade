@@ -1,0 +1,90 @@
+h2 {
+    margin: 0 auto 1rem auto;
+    font-size: 3rem;
+}
+
+main {
+    padding: 1rem;
+    background: rgb(70, 70, 70);
+    font-weight: bold;
+    font-family: sans-serif;
+    color: white;
+    text-align: center;
+}
+
+.scoreboard {
+    margin: 40px auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 8px solid black;
+    border-radius: 40px;
+    width: 250px;
+    font-size: 36px;
+    position: relative;
+}
+
+.scoreboard p {
+    margin: 0;
+}
+
+.badge {
+    position: absolute;
+    padding: 3px;
+}
+
+#score-badge {
+    top: -18px;
+    left: 79px;
+    background-color: darkblue;
+    font-size: 20px;
+}
+
+#highscore-badge {
+    top: 55px;
+    left: 79px;
+    background: green;
+    font-size: 12px;
+}
+
+.result {
+    font-size: 28px;
+}
+
+.result > p {
+    margin-top: 20px;
+}
+
+#dig-button {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 20px;
+    padding: 20px;
+    /*border: 8px solid black;*/
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+#dig-button:hover {
+    cursor: pointer;
+    background: rgb(95, 95, 95);
+}
+
+#dig-button:active {
+    background: black;
+}
+
+#cart-button {
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+#cart-button:hover {
+    cursor: pointer;
+    background: rgb(95, 95, 95);
+}
+
+#cart-button:active {
+    background: black;
+}

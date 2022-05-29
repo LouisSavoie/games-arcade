@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- SEO -->
+        <title>Minecart Classic - HiddenArcade</title>
+        <meta name="description" content="HiddenArcade - Minecart Classic - Fill your minecart with stones and ore, but don't overflow!">
+        <meta name="keywords" content="minecart, minecart classic, hidden arcade, free games, web arcade, online arcade, web games, javascript games">
+        <meta name="author" content="Louis Savoie">
+        <link rel="canonical" href="https://www.hiddenarcade.net/minecart-classic/index.html">
+
+        <!-- Open Graph -->
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Minecart Classic - HiddenArcade">
+        <meta property="og:description" content="HiddenArcade - Minecart Classic - Fill your minecart with stones and ore, but don't overflow!">
+        <meta property="og:url" content="https://www.hiddenarcade.net/minecart-classic">
+        <meta property="og:image" content="https://www.hiddenarcade.net/minecart-classic/images/minecart_logo1_500x300.png">
+        <meta property="og:image:width" content="500">
+        <meta property="og:image:height" content="300">
+        <meta property="og:image:alt" content="Minecart on HiddenArcade">
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Minecart Classic - HiddenArcade">
+        <meta name="twitter:description" content="HiddenArcade - Minecart Classic - Fill your minecart with stones and ore, but don't overflow!">
+        <meta name="twitter:url" content="https://www.hiddenarcade.net/minecart-classic">
+        <meta property="twitter:image" content="https://www.hiddenarcade.net/minecart-classic/images/minecart_logo1_500x300.png">
+        <meta property="twitter:image:alt" content="Minecart on HiddenArcade">
+        <meta name="twitter:creator" content="@LouSavoie">
+
+        <!-- favicons -->
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.hiddenarcade.net/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.hiddenarcade.net/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.hiddenarcade.net/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://www.hiddenarcade.net/manifest.json">
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2&family=Odibee+Sans&display=swap" rel="stylesheet">
+        
+        <!-- My CSS -->
+        <link rel="stylesheet" href="../css/shared.css">
+        <link rel="stylesheet" href="game.css">
+        <link rel="stylesheet" href="../css/header.css">
+        <link rel="stylesheet" href="../css/footer.css">
+    </head>
+    <body>
+        <header>
+            <script src="../partials/header.js"></script>
+        </header>
+
+        <main>
+
+            <h2>MINECART</h2>
+
+            <div class="scoreboard">
+                <p class="badge" id="score-badge">SCORE</p>
+                <p class="badge" id="highscore-badge">Best: 0000 lb</p>
+                <p id="score">0 lb</p>
+                
+            </div>
+            <div class="result">
+                <img id="result-img" src="images/starting.png" alt="">
+                <p id="result-text">Good luck!</p>
+            </div>
+            <div class="buttons">
+                <div id="cart-button">
+                    <img id="cart-img" src="images/cart.png" alt="">
+                </div>
+                <div id="dig-button">
+                    <img id="dig-img" src="images/pickaxe.png" alt="">
+                </div>
+            </div>
+            <div class="fun-messege">
+                <p>The Minecart holds 5,000 lb. Fill it to exactly 5,000 lb to win!</p>
+                <p>OR get as close as you dare and dump it to start over and save your score as a new Best.</p>
+            </div>
+
+        </main>
+
+        <footer>
+            <script src="../partials/footer.js"></script>
+        </footer>
+
+        <script src="game.js"></script>
+    </body>
+</html>
