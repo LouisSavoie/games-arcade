@@ -86,6 +86,13 @@ const achievements = {
         description: 'Win a game.',
         icon: 'img/achievements/win.png',
         unlocked: false
+    },
+    win100: {
+        name: 'Dedication!',
+        description: 'Win 100 games.',
+        icon: 'img/achievements/win.png',
+        unlocked: false,
+        gamesWon: 0
     }
 }
 const maxWeight = 100
@@ -192,7 +199,9 @@ function runWin() {
     updateLootDisplay(blocks.win)
     blockWeightUnitDisplay.innerText = 'PERFECTLY LOADED!'
     saveScore()
-    if (!currentAchievements.win.unlocked) currentAchievements.win.unlocked = true; updateAchievements('win');
+    if (!currentAchievements.win.unlocked) currentAchievements.win.unlocked = true; updateAchievements();
+    if (!currentAchievements.win100.unlocked) currentAchievements.win100.gamesWon += 1; updateAchievements('win100');
+    if (!currentAchievements.win100.unlocked && currentAchievements.win100.gamesWon === 100) currentAchievements.win100.unlocked = true; updateAchievements();
 }
 
 function runLose() {
@@ -208,8 +217,7 @@ function saveScore() {
     scoresDisplay.innerHTML = scores.map(v => v.element).join('')
 }
 
-function updateAchievements(achievement) {
-    currentAchievements[achievement].unlocked = true
+function updateAchievements() {
     localStorage.minecartAchievements = JSON.stringify(currentAchievements)
     updateAchievementsDisplay()
 }

@@ -113,7 +113,11 @@ h3 {
 }
 
 #reset-scores-button {
-    margin: 0 0 1rem 0;
+    margin: 0 0 1.5rem 0;
+}
+
+#achievements-heading {
+    margin: 0 0 .5rem 0;
 }
 
 #achievements-display {
@@ -122,11 +126,13 @@ h3 {
 
 .achievement {
     width: 200px;
+    margin: 0 0 2px 0;
     border: 2px solid rgb(201, 171, 0);
     border-radius: 5px;
     display: flex;
     flex-direction: row;
     text-align: center;
+    background-color: rgb(65, 65, 65);
 }
 
 .achievement img {
