@@ -12,6 +12,7 @@ const currentWeightDisplay = document.getElementById('current-weight-display')
 const maxWeightDisplay = document.getElementById('max-weight-display')
 const scoreDisplay = document.getElementById('score-display')
 const scoresDisplay = document.getElementById('scores-display')
+const achievementsDisplay = document.getElementById('achievements-display')
 // Inputs
 const initialsInput = document.getElementById('initials')
 
@@ -78,6 +79,14 @@ const blocks = {
         weight: '0'
     }
 }
+const achievements = {
+    win: {
+        name: 'Fireworks!',
+        description: 'Win a game.',
+        icon: 'img/achievements/win.png',
+        unlocked: false
+    }
+}
 const maxWeight = 100
 const weightUnit = 'kg'
 
@@ -87,6 +96,7 @@ let currentWeight = 0
 let score = 0
 let scores = []
 let pickActive = true
+let currentAchievements = {}
 
 // On load
 getLocalStorage()
@@ -99,12 +109,29 @@ function getLocalStorage() {
     } else {
         scores = JSON.parse(localStorage.getItem('minecartScores'))
     }
+    if (localStorage.getItem('minecartAchievements') === null) localStorage.minecartAchievements = JSON.stringify(achievements)
+    currentAchievements = JSON.parse(localStorage.getItem('minecartAchievements'))
+    // if (currentAchievements.length !== achievements.length) addNewAchievements()
 }
 
 function setupDisplays() {
     if (scores.length != 0) scoresDisplay.innerHTML = scores.map(v => v.element).join('')
     maxWeightDisplay.innerText = maxWeight
+    updateAchievementsDisplay()
 }
+
+function updateAchievementsDisplay() {
+    achievementsDisplay.innerHTML = Object.values(currentAchievements).map(achievement => buildAchievement(achievement)).join('')
+}
+
+function buildAchievement(achievement) {
+    if (achievement.unlocked) return `<div class="achievement"><img src="${achievement.icon}"><div><p>${achievement.name}</p><p>${achievement.description}</p></div></div>`
+    return `<div class="achievement-locked"><img src="${achievement.icon}"><div><p>${achievement.name}</p><p>???</p></div></div>`
+}
+
+// function addNewAchievements() {
+
+// }
 
 function runPickaxe() {
     pickaxeImg.classList = 'pickaxe1'
@@ -164,6 +191,7 @@ function runWin() {
     updateLootDisplay(blocks.win)
     blockWeightUnitDisplay.innerText = 'PERFECTLY LOADED!'
     saveScore()
+    if (!currentAchievements.win.unlocked) currentAchievements.win.unlocked = true; updateAchievements('win');
 }
 
 function runLose() {
@@ -177,6 +205,12 @@ function saveScore() {
     scores.sort((a, b) => b.score - a.score)
     localStorage.minecartScores = JSON.stringify(scores)
     scoresDisplay.innerHTML = scores.map(v => v.element).join('')
+}
+
+function updateAchievements(achievement) {
+    currentAchievements[achievement].unlocked = true
+    localStorage.minecartAchievements = JSON.stringify(currentAchievements)
+    updateAchievementsDisplay()
 }
 
 function resetGame() {
