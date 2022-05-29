@@ -107,6 +107,12 @@ const achievements = {
         icon: 'img/achievements/keepMining.png',
         unlocked: false,
         minedAfter: 0
+    },
+    score69: {
+        name: 'Noice',
+        description: 'Score 69.',
+        icon: 'img/achievements/score69.png',
+        unlocked: false
     }
 }
 const maxWeight = 100
@@ -204,6 +210,7 @@ function checkGameState() {
     if (currentWeight === maxWeight) runWin()
     if (currentWeight > maxWeight) runLose()
     // for testing
+    // score = 69
     // runWin()
     // runLose()
 }
@@ -216,6 +223,7 @@ function runWin() {
     if (!currentAchievements.win.unlocked) runWinAchievement()
     if (!currentAchievements.win100.unlocked) runWin100Achievement()
     if (!currentAchievements.play100.unlocked) runPlay100Achievement()
+    if (!currentAchievements.score69.unlocked) runScore69Achievement()
 }
 
 function runLose() {
@@ -279,6 +287,10 @@ function runPlay100Achievement() {
 function runKeepMiningAchievement() {
     currentAchievements.keepMining.minedAfter += 1; updateAchievements();
     if (currentAchievements.keepMining.minedAfter === 50) currentAchievements.keepMining.unlocked = true; updateAchievements();
+}
+
+function runScore69Achievement() {
+    if (score === 69) currentAchievements.score69.unlocked = true; updateAchievements();
 }
 
 // Event Listeners
