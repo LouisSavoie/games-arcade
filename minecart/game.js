@@ -22,62 +22,62 @@ const blocks = {
     stone: {
         name: 'stone',
         text: 'You got stone!',
-        img: 'img/stone.png',
+        img: 'img/blocks/stone.png',
         weight: 20,
         score: 1
     },
     copper: {
         name: 'copper',
         text: 'You got copper!',
-        img: 'img/copper.png',
+        img: 'img/blocks/copper.png',
         weight: 5,
         score: 5
     },
     tin: {
         name: 'tin',
         text: 'You got tin!',
-        img: 'img/tin.png',
+        img: 'img/blocks/tin.png',
         weight: 3,
         score: 10
     },
     iron: {
         name: 'iron',
         text: 'You got iron!',
-        img: 'img/iron.png',
+        img: 'img/blocks/iron.png',
         weight: 10,
         score: 20
     },
     silver: {
         name: 'silver',
         text: 'You got silver!',
-        img: 'img/silver.png',
+        img: 'img/blocks/silver.png',
         weight: 2,
         score: 40
     },
     gold: {
         name: 'gold',
         text: 'You got gold!',
-        img: 'img/gold.png',
+        img: 'img/blocks/gold.png',
         weight: 1,
         score: 100
     },
     diamond: {
         name: 'diamond',
         text: 'You got diamond!',
-        img: 'img/diamond.png',
+        img: 'img/blocks/diamond.png',
         weight: 0,
         score: 1000
     },
     win: {
         name: 'win',
         text: 'You WIN!',
-        img: 'img/win.gif',
+        img: 'img/blocks/win.gif',
         weight: ''
     },
     lose: {
         name: 'lose',
         text: 'You LOSE!',
-        img: 'img/lose.png',
+        img: 'img/blocks/lose.png',
         weight: ''
     },
     start: {
