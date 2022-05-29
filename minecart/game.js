@@ -61,6 +61,13 @@ const blocks = {
         weight: 1,
         score: 100
     },
+    diamond: {
+        name: 'diamond',
+        text: 'You got diamond!',
+        img: 'img/diamond.png',
+        weight: 0,
+        score: 1000
+    },
     win: {
         name: 'win',
         text: 'You WIN!',
@@ -87,20 +94,6 @@ const achievements = {
         icon: 'img/achievements/win.png',
         unlocked: false
     },
-    play100: {
-        name: 'Veteran Miner',
-        description: 'Play 100 games.',
-        icon: 'img/achievements/play.png',
-        unlocked: false,
-        gamesPlayed: 0
-    },
-    win100: {
-        name: 'Dedication!',
-        description: 'Win 100 games.',
-        icon: 'img/achievements/win.png',
-        unlocked: false,
-        gamesWon: 0
-    },
     keepMining: {
         name: 'Till the wheels fall off',
         description: 'Mine 50 times after the game ends.',
@@ -108,11 +101,31 @@ const achievements = {
         unlocked: false,
         minedAfter: 0
     },
+    play100: {
+        name: 'Veteran Miner',
+        description: 'Play 100 games.',
+        icon: 'img/achievements/play.png',
+        unlocked: false,
+        gamesPlayed: 0
+    },
     score69: {
         name: 'Noice',
         description: 'Score 69.',
         icon: 'img/achievements/score69.png',
         unlocked: false
+    },
+    diamonds: {
+        name: 'Diamonds!',
+        description: 'Mine a diamond.',
+        icon: 'img/achievements/diamond.png',
+        unlocked: false
+    },
+    win100: {
+        name: 'Dedication!',
+        description: 'Win 100 games.',
+        icon: 'img/achievements/win.png',
+        unlocked: false,
+        gamesWon: 0
     }
 }
 const maxWeight = 100
@@ -169,6 +182,7 @@ function runPickaxe() {
     updateMinecart(block)
     updateScore(block)
     checkGameState()
+    if (block.name === 'diamond' && !currentAchievements.diamonds.unlocked) runDiamondsAchievement()
 }
 
 function mine() {
@@ -184,6 +198,8 @@ function mine() {
     } else if (random <= 95) {
         return blocks.silver
     } else {
+        const diamondRandom = Math.floor(Math.random() * 100) + 1
+        if (diamondRandom === 100) return blocks.diamond
         return blocks.gold
     }
 }
@@ -291,6 +307,10 @@ function runKeepMiningAchievement() {
 
 function runScore69Achievement() {
     if (score === 69) currentAchievements.score69.unlocked = true; updateAchievements();
+}
+
+function runDiamondsAchievement() {
+    currentAchievements.diamonds.unlocked = true; updateAchievements();
 }
 
 // Event Listeners
