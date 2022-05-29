@@ -124,6 +124,10 @@ h3 {
     margin: 0 0 1rem 0;
 }
 
+#reset-achievements-button {
+    margin: 0 0 2rem 0;
+}
+
 .achievement {
     width: 200px;
     margin: 0 0 2px 0;
@@ -186,4 +190,23 @@ h3 {
 
 .hidden {
     display: none;
+}
+
+#info h3 {
+    margin: 0 0 .5rem 0;
+}
+
+#info p {
+    margin: 0;
+    color: rgb(189, 189, 189);
+}
+
+#info a {
+    text-decoration: none;
+    color: rgb(201, 171, 0);
+}
+
+#info a:hover {
+    text-decoration: none;
+    color: gold;
 }
