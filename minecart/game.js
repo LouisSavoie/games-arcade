@@ -93,6 +93,13 @@ const achievements = {
         icon: 'img/achievements/win.png',
         unlocked: false,
         gamesWon: 0
+    },
+    keepMining: {
+        name: 'Till the wheels fall off.',
+        description: 'Mine 50 times after the game ends.',
+        icon: 'img/achievements/keepMining.png',
+        unlocked: false,
+        minedAfter: 0
     }
 }
 const maxWeight = 100
@@ -199,9 +206,8 @@ function runWin() {
     updateLootDisplay(blocks.win)
     blockWeightUnitDisplay.innerText = 'PERFECTLY LOADED!'
     saveScore()
-    if (!currentAchievements.win.unlocked) currentAchievements.win.unlocked = true; updateAchievements();
-    if (!currentAchievements.win100.unlocked) currentAchievements.win100.gamesWon += 1; updateAchievements('win100');
-    if (!currentAchievements.win100.unlocked && currentAchievements.win100.gamesWon === 100) currentAchievements.win100.unlocked = true; updateAchievements();
+    if (!currentAchievements.win.unlocked) runWinAchievement()
+    if (!currentAchievements.win100.unlocked) runWin100Achievement()
 }
 
 function runLose() {
@@ -246,6 +252,21 @@ function resetAchievements() {
     updateAchievementsDisplay()
 }
 
+// Achievement Functions
+function runWinAchievement() {
+    currentAchievements.win.unlocked = true; updateAchievements();
+}
+
+function runWin100Achievement() {
+    currentAchievements.win100.gamesWon += 1; updateAchievements();
+    if (currentAchievements.win100.gamesWon === 100) currentAchievements.win100.unlocked = true; updateAchievements();
+}
+
+function runKeepMiningAchievement() {
+    currentAchievements.keepMining.minedAfter += 1; updateAchievements();
+    if (currentAchievements.keepMining.minedAfter === 50) currentAchievements.keepMining.unlocked = true; updateAchievements();
+}
+
 // Event Listeners
 pickaxeImg.addEventListener('mousedown', () => {
     pickaxeImg.classList = 'pickaxe2'
@@ -257,6 +278,7 @@ pickaxeImg.addEventListener('touchstart', () => {
 
 pickaxeImg.addEventListener('mouseup', () => {
     runPickaxe()
+    if (!currentAchievements.keepMining.unlocked && !pickActive) runKeepMiningAchievement()
 })
 
 resetButton.addEventListener('click', () => {
