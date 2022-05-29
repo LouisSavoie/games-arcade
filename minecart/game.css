@@ -141,6 +141,7 @@ h3 {
     margin: 1px;
     border: 1px solid rgb(150, 127, 0);
     border-radius: 5px;
+    background-color: black;
 }
 
 .achievement-text-container {

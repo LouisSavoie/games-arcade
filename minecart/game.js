@@ -87,6 +87,13 @@ const achievements = {
         icon: 'img/achievements/win.png',
         unlocked: false
     },
+    play100: {
+        name: 'Veteran Miner',
+        description: 'Play 100 games.',
+        icon: 'img/achievements/play.png',
+        unlocked: false,
+        gamesPlayed: 0
+    },
     win100: {
         name: 'Dedication!',
         description: 'Win 100 games.',
@@ -95,7 +102,7 @@ const achievements = {
         gamesWon: 0
     },
     keepMining: {
-        name: 'Till the wheels fall off.',
+        name: 'Till the wheels fall off',
         description: 'Mine 50 times after the game ends.',
         icon: 'img/achievements/keepMining.png',
         unlocked: false,
@@ -141,7 +148,7 @@ function updateAchievementsDisplay() {
 
 function buildAchievement(achievement) {
     if (achievement.unlocked) return `<div class="achievement"><img src="${achievement.icon}"><div class="achievement-text-container"><p>${achievement.name}</p><p>${achievement.description}</p></div></div>`
-    return `<div class="achievement achievement-locked"><img src="${achievement.icon}"><div class="achievement-text-container"><p>${achievement.name}</p><p>???</p></div></div>`
+    return `<div class="achievement achievement-locked"><img src="${achievement.icon}"><div class="achievement-text-container"><p>${achievement.name}</p><p>Locked</p></div></div>`
 }
 
 // function addNewAchievements() {
@@ -208,12 +215,14 @@ function runWin() {
     saveScore()
     if (!currentAchievements.win.unlocked) runWinAchievement()
     if (!currentAchievements.win100.unlocked) runWin100Achievement()
+    if (!currentAchievements.play100.unlocked) runPlay100Achievement()
 }
 
 function runLose() {
     pickActive = false
     updateLootDisplay(blocks.lose)
     blockWeightUnitDisplay.innerText = 'OVERLOADED!'
+    if (!currentAchievements.play100.unlocked) runPlay100Achievement()
 }
 
 function saveScore() {
@@ -260,6 +269,11 @@ function runWinAchievement() {
 function runWin100Achievement() {
     currentAchievements.win100.gamesWon += 1; updateAchievements();
     if (currentAchievements.win100.gamesWon === 100) currentAchievements.win100.unlocked = true; updateAchievements();
+}
+
+function runPlay100Achievement() {
+    currentAchievements.play100.gamesPlayed += 1; updateAchievements();
+    if (currentAchievements.play100.gamesPlayed === 100) currentAchievements.play100.unlocked = true; updateAchievements();
 }
 
 function runKeepMiningAchievement() {
