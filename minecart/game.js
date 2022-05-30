@@ -1,9 +1,11 @@
 // Buttons
-const resetButton = document.getElementById('reset-button')
 const resetScoresButton = document.getElementById('reset-scores-button')
 const resetAchievementsButton = document.getElementById('reset-achievements-button')
-const pickaxeImg = document.getElementById('pickaxe-img')
+const pickaxeButton = document.getElementById('pickaxe-button')
+const minecartButton = document.getElementById('minecart-button')
 const muteButton = document.getElementById('mute-button')
+// OLD RESET BUTTON, REPLACED BY DUMPING MINECART const resetButton = document.getElementById('reset-button')
+
 // Displays
 const lootText = document.getElementById('loot-text')
 const blockImg = document.getElementById('block-img')
@@ -16,6 +18,7 @@ const scoreDisplay = document.getElementById('score-display')
 const scoresDisplay = document.getElementById('scores-display')
 const achievementsDisplay = document.getElementById('achievements-display')
 const achievementUnlockedDisplay = document.getElementById('achievement-unlocked-display')
+
 // Inputs
 const initialsInput = document.getElementById('initials')
 
@@ -185,7 +188,7 @@ function buildAchievement(achievement) {
 // }
 
 function runPickaxe() {
-    pickaxeImg.classList = 'pickaxe1'
+    pickaxeButton.classList = 'pickaxe1'
     if (!currentAchievements.keepMining.unlocked && !pickActive) runKeepMiningAchievement()
     if (!pickActive) return
     const block = mine()
@@ -275,7 +278,7 @@ function updateAchievements() {
 }
 
 function resetGame() {
-    if (score === 0) return
+    minecartButton.classList = 'minecart'
     score = 0
     scoreDisplay.innerText = score
     currentWeight = 0
@@ -379,20 +382,28 @@ function runDiamondsAchievement() {
 }
 
 // Event Listeners
-pickaxeImg.addEventListener('mousedown', () => {
-    pickaxeImg.classList = 'pickaxe2'
+pickaxeButton.addEventListener('mousedown', () => {
+    pickaxeButton.classList = 'pickaxe2'
 })
 
-pickaxeImg.addEventListener('touchstart', () => {
-    pickaxeImg.classList = 'pickaxe2'
+pickaxeButton.addEventListener('touchstart', () => {
+    pickaxeButton.classList = 'pickaxe2'
 })
 
-pickaxeImg.addEventListener('mouseup', () => {
+pickaxeButton.addEventListener('mouseup', () => {
     runPickaxe()
 })
 
-resetButton.addEventListener('click', () => {
-    resetGame()
+minecartButton.addEventListener('mousedown', () => {
+    if (score !== 0) minecartButton.classList = 'minecart-dump'
+})
+
+minecartButton.addEventListener('touchstart', () => {
+    if (score !== 0) minecartButton.classList = 'minecart-dump'
+})
+
+minecartButton.addEventListener('mouseup', () => {
+    if (score !== 0) resetGame()
 })
 
 resetScoresButton.addEventListener('click', () => {
@@ -413,7 +424,8 @@ muteButton.addEventListener('click', () => {
 
 document.addEventListener('keydown', (event) => {
     if (event.target.localName === 'input') return
-    if (event.key === 't') pickaxeImg.classList = 'pickaxe2'
+    if (event.key === 't') pickaxeButton.classList = 'pickaxe2'
+    if (event.key === 'r' && score !== 0) minecartButton.classList = 'minecart-dump'
 })
 
 document.addEventListener('keyup', (event) => {
@@ -421,6 +433,6 @@ document.addEventListener('keyup', (event) => {
     if (event.key === 't') {
         runPickaxe()
     }
-    if (event.key === 'r') resetGame()
+    if (event.key === 'r' && score !== 0) resetGame()
     if (event.key === 'm') toggleMute()
 })

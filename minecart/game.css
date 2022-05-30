@@ -66,11 +66,22 @@ h2 {
     align-content: flex-start;
 }
 
-#minecart-img {
+#minecart-button {
     margin: 0 0 .5rem 0;
+    height: 100px;
+    width: 150px;
+    background-color: #25252a;
 }
 
-#pickaxe-img {
+.minecart {
+    background-image: url("img/minecart.png");
+}
+
+.minecart-dump {
+    background-image: url("img/minecartDump.png");
+}
+
+#pickaxe-button {
     margin: 0 0 .5rem 0;
     height: 150px;
     width: 150px;
