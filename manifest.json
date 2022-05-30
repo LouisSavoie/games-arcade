@@ -18,8 +18,25 @@
         "sizes": "512x512"
       }
     ],
-    "start_url": "/index.html",
+    "start_url": "/",
     "display": "standalone",
     "theme_color": "#000000",
-    "background_color": "#000000"
+    "background_color": "#000000",
+    "description": "Free web games from an indie developer",
+    "shortcuts": [
+      {
+        "name": "Devlog",
+        "short_name": "Devlog",
+        "description": "View the latest HiddenArcade news",
+        "url": "/devlog",
+        "icons": [{ "src": "/favicon/android-chrome-192x192.png", "sizes": "192x192" }]
+      },
+      {
+        "name": "Play Minecart",
+        "short_name": "Minecart",
+        "description": "Play Minecart on HiddenArcade",
+        "url": "/minecart",
+        "icons": [{ "src": "/favicon/android-chrome-192x192.png", "sizes": "192x192" }]
+      }
+    ]
   }
