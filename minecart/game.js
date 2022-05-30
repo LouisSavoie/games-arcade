@@ -3,6 +3,7 @@ const resetButton = document.getElementById('reset-button')
 const resetScoresButton = document.getElementById('reset-scores-button')
 const resetAchievementsButton = document.getElementById('reset-achievements-button')
 const pickaxeImg = document.getElementById('pickaxe-img')
+const muteButton = document.getElementById('mute-button')
 // Displays
 const lootText = document.getElementById('loot-text')
 const blockImg = document.getElementById('block-img')
@@ -145,6 +146,7 @@ let score = 0
 let scores = []
 let pickActive = true
 let currentAchievements = {}
+let mute = false
 
 // On load
 getLocalStorage()
@@ -187,6 +189,7 @@ function runPickaxe() {
     if (!currentAchievements.keepMining.unlocked && !pickActive) runKeepMiningAchievement()
     if (!pickActive) return
     const block = mine()
+    playSound('mine')
     updateLootDisplay(block)
     updateMinecart(block)
     updateScore(block)
@@ -272,6 +275,7 @@ function updateAchievements() {
 }
 
 function resetGame() {
+    if (score === 0) return
     score = 0
     scoreDisplay.innerText = score
     currentWeight = 0
@@ -282,6 +286,7 @@ function resetGame() {
     updateLootDisplay(blocks.start)
     pickActive = true
     currentAchievements.keepMining.minedAfter = 0
+    playSound('resetGame')
 }
 
 function resetScores() {
@@ -299,6 +304,22 @@ function resetAchievements() {
 function displayAchievement(achievement) {
     achievementUnlockedDisplay.innerHTML = `<h3>Achievement Unlocked!</h3><span>&times;</span><div class="achievement"><img src="${achievement.icon}"><div class="achievement-text-container"><p>${achievement.name}</p><p class="achievement-desc">${achievement.description}</p></div></div>`
     achievementUnlockedDisplay.classList = ''
+}
+
+function playSound(sound) {
+    if (mute) return
+    const sfx = new Audio(`sfx/${sound}.mp3`)
+    sfx.play()
+}
+
+function toggleMute() {
+    if (mute === false) {
+        mute = true
+        muteButton.innerText = 'Unmute'
+    } else {
+        mute = false
+        muteButton.innerText = 'Mute'
+    }
 }
 
 // Achievement Functions
@@ -386,6 +407,10 @@ achievementUnlockedDisplay.addEventListener('click', () => {
     achievementUnlockedDisplay.classList = 'hidden'
 })
 
+muteButton.addEventListener('click', () => {
+    toggleMute()
+})
+
 document.addEventListener('keydown', (event) => {
     if (event.target.localName === 'input') return
     if (event.key === 't') pickaxeImg.classList = 'pickaxe2'
@@ -397,4 +422,5 @@ document.addEventListener('keyup', (event) => {
         runPickaxe()
     }
     if (event.key === 'r') resetGame()
+    if (event.key === 'm') toggleMute()
 })
