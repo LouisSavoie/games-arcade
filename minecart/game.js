@@ -88,8 +88,8 @@ const blocks = {
     start: {
         name: 'start',
         text: 'Click the pickaxe to mine!',
-        img: '',
-        weight: '0'
+        img: 'img/blocks/start.png',
+        weight: 'Click the minecart to reset!'
     }
 }
 const achievements = {
@@ -172,6 +172,7 @@ function setupDisplays() {
     if (scores.length != 0) scoresDisplay.innerHTML = scores.map(v => v.element).join('')
     maxWeightDisplay.innerText = maxWeight
     updateAchievementsDisplay()
+    updateLootDisplay(blocks.start)
 }
 
 function updateAchievementsDisplay() {
@@ -223,6 +224,7 @@ function updateLootDisplay(block) {
     lootText.innerText = block.text
     blockImg.innerHTML = `<img id="block-${block.name}" src="${block.img}">`
     blockWeight.innerText = block.weight
+    block.name === 'start' ? blockWeightUnitDisplay.innerText = '' : blockWeightUnitDisplay.innerText = weightUnit
 }
 
 function updateMinecart(block) {
@@ -251,6 +253,7 @@ function runWin() {
     updateLootDisplay(blocks.win)
     blockWeightUnitDisplay.innerText = 'PERFECTLY LOADED!'
     saveScore()
+    playSound('win')
     if (!currentAchievements.win.unlocked) runWinAchievement()
     if (!currentAchievements.win100.unlocked) runWin100Achievement()
     if (!currentAchievements.play100.unlocked) runPlay100Achievement()
@@ -307,6 +310,7 @@ function resetAchievements() {
 function displayAchievement(achievement) {
     achievementUnlockedDisplay.innerHTML = `<h3>Achievement Unlocked!</h3><span>&times;</span><div class="achievement"><img src="${achievement.icon}"><div class="achievement-text-container"><p>${achievement.name}</p><p class="achievement-desc">${achievement.description}</p></div></div>`
     achievementUnlockedDisplay.classList = ''
+    playSound('achievement')
 }
 
 function playSound(sound) {
