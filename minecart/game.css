@@ -28,6 +28,10 @@ h2 {
     color: rgb(189, 189, 189);
 }
 
+#mute-button {
+    align-self: flex-end;
+}
+
 #loot-display {
     display: flex;
     flex-direction: column;
