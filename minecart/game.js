@@ -184,6 +184,7 @@ function buildAchievement(achievement) {
 
 function runPickaxe() {
     pickaxeImg.classList = 'pickaxe1'
+    if (!currentAchievements.keepMining.unlocked && !pickActive) runKeepMiningAchievement()
     if (!pickActive) return
     const block = mine()
     updateLootDisplay(block)
@@ -367,7 +368,6 @@ pickaxeImg.addEventListener('touchstart', () => {
 
 pickaxeImg.addEventListener('mouseup', () => {
     runPickaxe()
-    if (!currentAchievements.keepMining.unlocked && !pickActive) runKeepMiningAchievement()
 })
 
 resetButton.addEventListener('click', () => {
@@ -384,4 +384,17 @@ resetAchievementsButton.addEventListener('click', () => {
 
 achievementUnlockedDisplay.addEventListener('click', () => {
     achievementUnlockedDisplay.classList = 'hidden'
+})
+
+document.addEventListener('keydown', (event) => {
+    if (event.target.localName === 'input') return
+    if (event.key === 't') pickaxeImg.classList = 'pickaxe2'
+})
+
+document.addEventListener('keyup', (event) => {
+    if (event.target.localName === 'input') return
+    if (event.key === 't') {
+        runPickaxe()
+    }
+    if (event.key === 'r') resetGame()
 })
