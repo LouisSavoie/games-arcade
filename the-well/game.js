@@ -1,6 +1,16 @@
 // Displays
+const actionMenuDisplay = document.getElementById('action-menu-display')
 
 // Buttons
+const wellButton = document.getElementById('well-button')
+const forestButton = document.getElementById('forest-button')
+const fieldButton = document.getElementById('field-button')
+const lakeButton = document.getElementById('lake-button')
+const mountainButton = document.getElementById('mountain-button')
+const surveyButton = document.getElementById('survey-button')
+const craftButton = document.getElementById('craft-button')
+const equipButton = document.getElementById('equip-button')
+const combatButton = document.getElementById('combat-button')
 
 // Data
 const zones = {
@@ -120,6 +130,9 @@ const gameData = {
 
 // States
 let gameState = {}
+
+// On Load
+loadSave()
 
 // Save Functions
 function loadSave() {
